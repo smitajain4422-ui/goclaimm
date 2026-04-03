@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
   const { tracking_id } = req.query;
   
-  const wispByteIP = "http://85.215.131.70:15124"; 
+  const wispByteIP = "http://212.227.7.153:10021"; 
 
   try {
     // Look closely at this line! Make sure it has the /check_status.php part at the end
