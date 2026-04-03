@@ -1,11 +1,12 @@
 export default async function handler(req, res) {
   const { tracking_id } = req.query;
   
+  // Make sure this port matches whatever port your Express server is actually running on (10021 or 15124)
   const wispByteIP = "http://212.227.7.153:10021"; 
 
   try {
-    // Look closely at this line! Make sure it has the /check_status.php part at the end
-    const response = await fetch(`${wispByteIP}/check_status.php?tracking_id=${tracking_id}`);
+    // Changed from /check_status.php to /api/check to match your Express backend
+    const response = await fetch(`${wispByteIP}/api/check?tracking_id=${tracking_id}`);
     
     if (!response.ok) {
         throw new Error(`Server responded with ${response.status} ${response.statusText}`);
@@ -28,4 +29,3 @@ export default async function handler(req, res) {
     });
   }
 }
-
